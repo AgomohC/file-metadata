@@ -1,36 +1,20 @@
-// require express
 const express = require("express");
-
-//initialize dotenv
-require("dotenv").config();
-
-//initialize multer
-const multer = require("multer");
-
-//connection function
-const connectDB = require("./db/connect");
-
-//initialize express
 const app = express();
-
-// middleware //
-//static files
 app.use(express.static("./public"));
-
-//parser
-app.use(express.urlencoded({ extended: false }));
-
-const port = process.env.PORT || 8080;
-
-const start = async () => {
-  try {
-    await connectDB(process.env.MONGO_URI);
-    app.listen(port, () => {
-      console.log(`app is listening on port ${port}...`);
-    });
-  } catch (error) {
-    console.log(error);
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
+app.post("/api/fileanalyse", upload.single("upfile"), (req, res) => {
+  const upfile = req.file;
+  if (!upfile) {
+    return res.status(400).json({ msg: "file not found" });
   }
-};
+  res.status(201).json({
+    name: upfile.originalname,
+    type: upfile.mimetype,
+    size: upfile.size,
+  });
+});
 
-start();
+app.listen(5000, () => {
+  console.log("app is listening on port 5000...");
+});
