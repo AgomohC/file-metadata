@@ -4,14 +4,17 @@
   "description": "A file metadata microservice built for fcc's backend and api development section",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AgomohC/file-metadata-microservice.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "multer",
+    "express"
+  ],
+  "author": "Chinaemerem Agomoh",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AgomohC/file-metadata-microservice/issues"
