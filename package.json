@@ -4,7 +4,7 @@
   "description": "A file metadata microservice built for fcc's backend and api development section",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -12,7 +12,9 @@
   },
   "keywords": [
     "multer",
-    "express"
+    "express",
+    "cloudinary",
+    "datauri"
   ],
   "author": "Chinaemerem Agomoh",
   "license": "ISC",

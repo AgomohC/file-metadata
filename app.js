@@ -9,7 +9,6 @@ const { cloudinaryConfig, uploader } = require("./config/cloudinaryConfig");
 const parser = new DataUriParser();
 const storage = multer.memoryStorage();
 const multerUploads = multer({ storage }).single("upfile");
-// const upload = multer({ dest: "uploads/" });
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("*", cloudinaryConfig);
@@ -19,12 +18,7 @@ app.post("/api/fileanalyse", multerUploads, async (req, res) => {
     if (!upfile) {
       return res.status(400).json({ msg: "file not found" });
     }
-    // console.log(
-    //   typeof parser.format(
-    //     path.extname(req.file.originalname).toString(),
-    //     req.file.buffer
-    //   ).content
-    // );
+
     const upload = await uploader.upload(
       parser.format(
         path.extname(req.file.originalname).toString(),
