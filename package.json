@@ -4,7 +4,7 @@
   "description": "A file metadata microservice built for fcc's backend and api development section",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/AgomohC/file-metadata-microservice#readme",
   "dependencies": {
+    "cloudinary": "^1.27.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "multer": "^1.4.3"
   },

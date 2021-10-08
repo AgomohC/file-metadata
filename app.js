@@ -1,9 +1,13 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
 app.use(express.static("./public"));
 const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
-app.post("/api/fileanalyse", upload.single("upfile"), (req, res) => {
+const storage = multer.memoryStorage();
+const multerUploads = multer({ storage }).single("upfile");
+// const upload = multer({ dest: "uploads/" });
+app.post("/api/fileanalyse", multerUploads, (req, res) => {
+  console.log("req.file:", req.file);
   const upfile = req.file;
   if (!upfile) {
     return res.status(400).json({ msg: "file not found" });
@@ -14,7 +18,10 @@ app.post("/api/fileanalyse", upload.single("upfile"), (req, res) => {
     size: upfile.size,
   });
 });
-
-app.listen(5000, () => {
-  console.log("app is listening on port 5000...");
+app.use((req, res) => {
+  res.status(404).send("route does not exist");
+});
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log(`app is listening on port ${port}...`);
 });
