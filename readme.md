@@ -1,10 +1,10 @@
 # File Metadata
 
-[femto-metadata](#) is a simple full stack app that accepts a file, uploads to cloudinary and returns its metadata. This project idea was gotten from [freeCodeCamp](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/file-metadata-microservice).
+[femto-metadata](#) is a simple full stack app that accepts images, uploads to cloudinary and returns its metadata. This project idea was gotten from [freeCodeCamp](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/file-metadata-microservice).
 
 ### Resources
 
-- Upload a file <#/api/fileanalyse>
+- Upload an image <#/api/fileanalyse>
 
 #### Upload a file
 
@@ -16,14 +16,14 @@ A post request is made to <#/api/fileanalyse> with the upload file in the file p
 
 ```json
 {
-  "name": "file name",
-  "type": "file size",
-  "size": "file size in bytes",
+  "name": "image name",
+  "type": "image size",
+  "size": "image size in bytes",
   "img": "secure cloudinary link"
 }
 ```
 
-- if the file is absent
+- if the image is absent
 
 ```json
 {
